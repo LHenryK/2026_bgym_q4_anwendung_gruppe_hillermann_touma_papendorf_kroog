@@ -1,1 +1,6 @@
-# 2026_bgym_q4_anwendung_gruppe_hillermann_touma_papendorf_kroog
+# Projekt: BIF - Kulturzentrum
+## Beschreibung
+Gemeinsames Projekt im Fach Berufliche Informatik (Jahrgang 13) zur Handlungssituation des Kulturzentrums.
+
+## Gruppe
+Bestehend aus Hauke, Ali, Matz und Linus
