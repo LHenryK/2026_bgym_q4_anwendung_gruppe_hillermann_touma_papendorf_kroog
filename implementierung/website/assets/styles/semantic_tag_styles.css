@@ -20,6 +20,8 @@ body {
     height: 100%;
 
     scroll-behavior: smooth;
+
+    background-color: #fff;
 }
 
 nav {
@@ -35,42 +37,142 @@ nav {
     right: 0;
 
     margin: 0;
-    padding: 3.5vh;
+    padding: 2vh;
 
     background-color: var(--navigation-bg-color);
     z-index: 100;
 }
 
-nav .nav-logo {
-    background-color: black;
+nav .nav-logo a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
 
+    color: var(--navigation-font-color);
+    text-decoration: none;
+
+    border: 2px solid black;
     border-bottom: 2px solid yellow;
     border-radius: 25px;
 }
 
-nav .nav-logo a {
-    color: var(--navigation-font-color);
-    text-decoration: none;
+nav .nav-logo a img {
+    margin-left: 10px;
+    margin-right: 10px;
+    max-height: 33px;
+    height: auto;
+}
+
+nav .nav-logo a:hover {
+    color: #000;
+
+    border: 2px solid yellow;
+    border-bottom: 2px solid #000;
+
+    background-color: #fff;
+}
+
+nav .horizontal {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+}
+
+nav .horizontal hr {
+    border-left: 1px solid #ccc;
+    height: 50px;
+    margin-left: 10px;
 }
 
 nav .nav-links .nav-list {
+    margin: 15px;
+    padding: 0;
+
     list-style-type: none;
+
     display: flex;
+
+    flex-wrap: wrap;
 }
 
 nav .nav-links .nav-list li {
     margin: 5px;
+    padding: 5px;
 }
 
 nav .nav-links .nav-list li a {
-    color: var(--navigation-font-color);
     text-decoration: none;
+    color: var(--navigation-font-color);
 
-    padding: 5px;
+    padding: 8px;
     border-radius: 5px;
+}
 
-    background-color: var(--navigation-bg-color-links);
+nav .nav-links .nav-list li a:hover {
+    background-color: #000;
+}
+
+
+nav .actions .action-list {
+    margin: 5px;
+    padding: 0;
+
+    list-style-type: none;
+
+    display: flex;
+
+    flex-wrap: wrap;
+}
+
+nav .actions .action-list li {
+    margin: 5px;
+    padding: 5px;
+}
+
+nav .actions .action-list li a {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+    color: var(--navigation-font-color);
+
+    padding: 8px;
+    border-radius: 5px;
+}
+
+nav .actions .action-list li a:hover {
+    background-color: #000;
+}
+
+nav .actions .action-list li a img {
+    margin: 5px;
+    height: 25px;
+    filter: brightness(0) invert(1);
+}
+
+
+.banner-background {
+    position: initial;
+    display: block;
+
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.banner-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border: none;
+    /* 1 is normal, 0.5 is 50% brightness, 0.3 is very dark */
+    filter: brightness(0.8);
 }
 
 .banner {
@@ -134,15 +236,21 @@ nav .nav-links .nav-list li a {
     text-decoration: none;
 }
 
-.banner-content.bottom .link i {
-    font-size: 44px;
+.banner-content.bottom .link img {
+    height: 25px;
+    filter: brightness(0) invert(1);
 }
 
 .banner-content .title {
     display: flex;
+    flex-direction: column;
 
     justify-content: center;
     align-items: center;
+}
+
+.banner-content .title img {
+    height: 30vh;
 }
 
 .banner-content .title p {
@@ -179,95 +287,57 @@ nav .nav-links .nav-list li a {
     border-radius: 5px;
 }
 
-/* Der Container erstreckt sich nun garantiert über das ganze Fenster */
-.bildergalerie_slider {
-    position: initial;
-    display: block;
-
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.bildergalerie_slider_alle_slides {
-    display: flex;
-    /* Nutzt vw statt %, um Rundungsfehler zu minimieren */
-    width: calc(100vw * var(--anzahl-bilder));
-    height: 100vh;
-    animation: slideranimation var(--animations-dauer) infinite ease-in-out;
-}
-
-.bildergalerie_slider_alle_slides figure {
-    width: 100vw;
-    /* Jeder Slide ist exakt so breit wie das Fenster */
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-.bildergalerie_slider_alle_slides figure img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border: none;
-    /* 1 is normal, 0.5 is 50% brightness, 0.3 is very dark */
-    filter: brightness(0.3);
-}
-
-/* Animation angepasst auf exakte Viewport-Breiten */
-@keyframes slideranimation {
-
-    0%,
-    20% {
-        transform: translateX(0);
-    }
-
-    25%,
-    45% {
-        transform: translateX(-100vw);
-    }
-
-    50%,
-    70% {
-        transform: translateX(-200vw);
-    }
-
-    75%,
-    95% {
-        transform: translateX(-300vw);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
-/* Deine Positionierungen */
-.bildergalerie_slider_alle_slides figure:nth-child(1) img,
-.bildergalerie_slider_alle_slides figure:nth-child(4) img {
-    object-position: center;
-}
-
-.bildergalerie_slider_alle_slides figure:nth-child(2) img,
-.bildergalerie_slider_alle_slides figure:nth-child(3) img {
-    object-position: center 20%;
-}
-
 main,
 section {
-    scroll-margin-top: 10vh;
+    scroll-margin-top: 20vh;
+}
+
+section {
+    padding: 2vh;
+    margin: 2vh;
+
+    min-height: 10vh;
+
+    background-color: #fff;
+
+    border: 1.5px solid black;
+    border-radius: 10px;
+
+    box-shadow: 10px 5px 5px black;
+}
+
+section h1 {
+    font-size: 24px;
+}
+
+section h1.center {
+    text-align: center;
+}
+
+section h2 {
+    font-size: 22px;
+}
+
+section h3 {
+    font-size: 20px;
+}
+
+section p {
+    font-size: 16px;
+}
+
+section p.center {
+    text-align: center;
 }
 
 .wrapper {
     padding-top: 10vh;
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 25%;
+    padding-right: 25%;
     padding-bottom: 10vh;
 }
 
-footer.sticky {
+footer {
     color: #fff;
 
     position: sticky;
@@ -276,12 +346,15 @@ footer.sticky {
     justify-content: center;
     align-items: center;
 
-    padding: 10px;
+    padding: 30px;
 
     background-color: var(--navigation-bg-color);
 }
 
-footer.sticky div {
+footer div {
+    margin: 0;
+    padding: 5px;
+
     display: flex;
 
     justify-content: center;
@@ -289,25 +362,30 @@ footer.sticky div {
 
 }
 
-footer.sticky .links {
+footer .links {
+    margin: 0;
+    padding: 5px;
+
     list-style-type: none;
 
     display: flex;
-    flex-direction: column;
 
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-
-    background-color: blue;
 }
 
-footer.sticky .links li {
+footer .links li {
     margin: 5px;
-    padding: 0;
 }
 
-footer.sticky .links li a {
+footer .links li a {
     text-decoration: none;
     color: #fff;
-    padding: 5px;
+    padding: 8px;
+}
+
+footer .links li a:hover {
+    background-color: #000;
+
+    border-radius: 5px;
 }
