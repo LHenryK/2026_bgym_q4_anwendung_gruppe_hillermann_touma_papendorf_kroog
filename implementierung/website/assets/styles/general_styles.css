@@ -1,15 +1,9 @@
+/* Allgemeine Formatierungen für alle Webseiten */
 * {
     box-sizing: content-box;
 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
-
-    --navigation-font-color: #fff;
-    --navigation-bg-color: darkslategrey;
-    --navigation-bg-color-links: #000;
-
-    --anzahl-bilder: 4;
-    --animations-dauer: 16s;
 }
 
 html,
@@ -25,7 +19,7 @@ body {
 }
 
 nav {
-    color: var(--navigation-font-color);
+    color: #fff;
 
     display: flex;
     justify-content: space-between;
@@ -39,7 +33,7 @@ nav {
     margin: 0;
     padding: 2vh;
 
-    background-color: var(--navigation-bg-color);
+    background-color: darkslategrey;
     z-index: 100;
 }
 
@@ -49,10 +43,10 @@ nav .nav-logo a {
     align-items: center;
     padding: 10px;
 
-    color: var(--navigation-font-color);
+    color: #fff;
     text-decoration: none;
 
-    border: 2px solid black;
+    border: 2px solid #000;
     border-bottom: 2px solid yellow;
     border-radius: 25px;
 }
@@ -73,17 +67,20 @@ nav .nav-logo a:hover {
     background-color: #fff;
 }
 
-nav .horizontal {
+nav .list-container {
     display: flex;
 
     justify-content: center;
     align-items: center;
-
-    flex-wrap: wrap;
 }
 
-nav .horizontal hr {
-    border-left: 1px solid #ccc;
+nav .list-container div {
+    display: flex;
+    align-items: center;
+}
+
+nav .list-container hr {
+    border-left: 1px solid #fff;
     height: 50px;
     margin-left: 10px;
 }
@@ -106,7 +103,7 @@ nav .nav-links .nav-list li {
 
 nav .nav-links .nav-list li a {
     text-decoration: none;
-    color: var(--navigation-font-color);
+    color: #fff;
 
     padding: 8px;
     border-radius: 5px;
@@ -130,7 +127,6 @@ nav .actions .action-list {
 
 nav .actions .action-list li {
     margin: 5px;
-    padding: 5px;
 }
 
 nav .actions .action-list li a {
@@ -138,7 +134,7 @@ nav .actions .action-list li a {
     align-items: center;
 
     text-decoration: none;
-    color: var(--navigation-font-color);
+    color: #fff;
 
     padding: 8px;
     border-radius: 5px;
@@ -150,7 +146,7 @@ nav .actions .action-list li a:hover {
 
 nav .actions .action-list li a img {
     margin: 5px;
-    height: 25px;
+    height: 20px;
     filter: brightness(0) invert(1);
 }
 
@@ -163,6 +159,10 @@ nav .actions .action-list li a img {
     height: 100vh;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+.banner-background.small {
+    height: 70vh;
 }
 
 .banner-background img {
@@ -184,13 +184,23 @@ nav .actions .action-list li a img {
     width: 100vw;
     height: 100vh;
 
+    padding-top: 20vh;
+
     z-index: 10;
+}
+
+.banner.small {
+    height: 70vh;
+}
+
+.banner.small .banner-container {
+    height: 50%;
 }
 
 .banner-container {
     color: #fff;
 
-    height: 100%;
+    height: 80%;
 
     display: flex;
     flex-direction: column;
@@ -250,7 +260,7 @@ nav .actions .action-list li a img {
 }
 
 .banner-content .title img {
-    height: 30vh;
+    height: 22vh;
 }
 
 .banner-content .title p {
@@ -276,17 +286,6 @@ nav .actions .action-list li a img {
     margin-bottom: 3vh;
 }
 
-.banner-content .btn {
-    text-decoration: none;
-    color: #fff;
-    background-color: blue;
-
-    width: fit-content;
-
-    padding: 15px;
-    border-radius: 5px;
-}
-
 main,
 section {
     scroll-margin-top: 20vh;
@@ -300,10 +299,10 @@ section {
 
     background-color: #fff;
 
-    border: 1.5px solid black;
+    border: 1.5px solid #000;
     border-radius: 10px;
 
-    box-shadow: 10px 5px 5px black;
+    box-shadow: 10px 5px 5px #000;
 }
 
 section h1 {
@@ -332,9 +331,14 @@ section p.center {
 
 .wrapper {
     padding-top: 10vh;
-    padding-left: 25%;
-    padding-right: 25%;
+    padding-left: 15%;
+    padding-right: 15%;
     padding-bottom: 10vh;
+}
+
+.wrapper.small {
+    padding-left: 30%;
+    padding-right: 30%;
 }
 
 footer {
@@ -348,7 +352,7 @@ footer {
 
     padding: 30px;
 
-    background-color: var(--navigation-bg-color);
+    background-color: darkslategrey;
 }
 
 footer div {
@@ -360,6 +364,11 @@ footer div {
     justify-content: center;
     align-items: center;
 
+}
+
+footer hr {
+    border-top: 1px solid #fff;
+    width: 80%;
 }
 
 footer .links {
@@ -388,4 +397,70 @@ footer .links li a:hover {
     background-color: #000;
 
     border-radius: 5px;
+}
+
+/* Seiten spizifische Formatierungen */
+
+
+
+
+/* Anpassung der Fromatierung für mobile Anzeigen (Handy, Tablet, ...) */
+
+@media only screen and (max-width: 900px) {
+
+    /* Allgemein spizifische Formatierungen */
+    .banner {
+        padding-top: 40vh;
+    }
+
+    .banner .banner-container {
+        height: 60%;
+    }
+
+    nav .list-container {
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav .nav-links .nav-list {
+        margin: 5px;
+    }
+
+    nav .actions .action-list {
+        margin: 5px;
+    }
+
+    nav .list-container hr {
+        background-color: #000;
+        border: none;
+        border-top: 1px solid #fff;
+        height: 1px;
+        width: 20vh;
+    }
+
+    .banner-content .title img {
+        height: 15vh;
+    }
+
+    .banner-content .title p {
+        font-size: 30px;
+    }
+
+    .banner-content .description .slogan {
+        font-size: 22px;
+    }
+
+    .wrapper {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    .wrapper.small {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    /* Seiten spizifische Formatierungen */
 }
