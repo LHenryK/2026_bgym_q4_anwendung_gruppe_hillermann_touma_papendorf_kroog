@@ -92,8 +92,6 @@ nav .nav-links .nav-list {
     list-style-type: none;
 
     display: flex;
-
-    flex-wrap: wrap;
 }
 
 nav .nav-links .nav-list li {
@@ -162,7 +160,7 @@ nav .actions .action-list li a img {
 }
 
 .banner-background.small {
-    height: 70vh;
+    height: 80vh;
 }
 
 .banner-background img {
@@ -190,7 +188,7 @@ nav .actions .action-list li a img {
 }
 
 .banner.small {
-    height: 70vh;
+    height: 80vh;
 }
 
 .banner.small .banner-container {
@@ -401,20 +399,50 @@ footer .links li a:hover {
 
 /* Seiten spizifische Formatierungen */
 
+section .event-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+section .event-container .event-card {
+    background-color: #ccc;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+section .event-container .event-card .title {
+    font-size: 35px;
+}
+
+section .event-container .event-card .contents {}
 
 
+section .event-container .event-card .contents .galary {}
+
+section .event-container .event-card .contents .galary img {
+    height: 15px;
+}
 
 /* Anpassung der Fromatierung für mobile Anzeigen (Handy, Tablet, ...) */
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 850px) {
 
     /* Allgemein spizifische Formatierungen */
     .banner {
-        padding-top: 40vh;
+        padding-top: 30vh;
     }
 
     .banner .banner-container {
-        height: 60%;
+        height: 40vh;
+    }
+
+    .banner.small {
+        height: 70vh;
+    }
+
+    .banner.small .banner-container {
+        height: 50%;
     }
 
     nav .list-container {
@@ -426,6 +454,7 @@ footer .links li a:hover {
 
     nav .nav-links .nav-list {
         margin: 5px;
+        flex-direction: column;
     }
 
     nav .actions .action-list {
@@ -453,6 +482,7 @@ footer .links li a:hover {
     }
 
     .wrapper {
+        padding-top: 5vh;
         padding-left: 2%;
         padding-right: 2%;
     }
